@@ -9,3 +9,7 @@ data class Contributor (
     val following: Int,
     val name: String
 )
+
+data class ContributorId (
+    val login: String
+)

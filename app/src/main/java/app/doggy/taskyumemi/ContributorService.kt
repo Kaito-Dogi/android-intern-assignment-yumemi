@@ -7,7 +7,7 @@ interface ContributorService {
 
     //Contributorのloginを取得する
     @GET("repositories/90792131/contributors")
-    suspend fun getContributorId(): String
+    suspend fun getContributorId(): List<ContributorId>
 
     //取得したloginから，ユーザーの詳細な情報を取得する
     @GET("users/{login}")
