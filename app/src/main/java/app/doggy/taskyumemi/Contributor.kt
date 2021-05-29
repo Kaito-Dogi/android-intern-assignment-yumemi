@@ -9,7 +9,3 @@ data class Contributor (
     val following: Int,
     val name: String
 )
-
-data class ContributorFromList (
-    val login: String
-)

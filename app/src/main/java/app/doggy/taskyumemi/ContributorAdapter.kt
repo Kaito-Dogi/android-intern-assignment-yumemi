@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ContributorsAdapter(private val context: Context): RecyclerView.Adapter<ContributorsAdapter.ViewHolder>() {
+class ContributorAdapter(private val context: Context): RecyclerView.Adapter<ContributorAdapter.ViewHolder>() {
 
     //リスト表示するデータの配列
     val items: MutableList<Contributor> = mutableListOf()
