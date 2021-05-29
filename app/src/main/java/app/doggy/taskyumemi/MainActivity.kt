@@ -9,9 +9,7 @@ class MainActivity : AppCompatActivity() {
 
     //ダミーデータを作成
     val contributors: List<Contributor> = listOf(
-        Contributor("https://avatars.githubusercontent.com/u/49048577?v=4", "Kaito-Dogi", 4, 2),
-        Contributor("https://avatars.githubusercontent.com/u/49048577?v=4", "Doggy", 40, 20),
-        Contributor("https://avatars.githubusercontent.com/u/49048577?v=4", "doggy", 400, 200),
+        Contributor("Kaito-Dogi","https://avatars.githubusercontent.com/u/49048577?v=4", 4, 2, "Doggy")
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

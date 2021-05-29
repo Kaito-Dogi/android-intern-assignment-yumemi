@@ -15,10 +15,11 @@ class ContributorsAdapter(private val context: Context): RecyclerView.Adapter<Co
 
     //ViewHolderの定義
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
+        val loginTextView: TextView = view.findViewById(R.id.login_text_view)
         val avatarImage: ImageView = view.findViewById(R.id.avator_image_view)
-        val nameTextView: TextView = view.findViewById(R.id.name_text_view)
         val followersTextView: TextView = view.findViewById(R.id.followers_text_view)
         val followingTextView: TextView = view.findViewById(R.id.following_text_view)
+        val nameTextView: TextView = view.findViewById(R.id.name_text_view)
     }
 
     //ViewHolderを生成
@@ -30,10 +31,11 @@ class ContributorsAdapter(private val context: Context): RecyclerView.Adapter<Co
     //position番目のセルにデータを表示
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
+        holder.loginTextView.text = item.login
         //holder.avatarImageに画像を表示する処理
-        holder.nameTextView.text = item.name
         holder.followersTextView.text = item.followers.toString()
         holder.followingTextView.text = item.following.toString()
+        holder.nameTextView.text = item.name
     }
 
     override fun getItemCount(): Int {
