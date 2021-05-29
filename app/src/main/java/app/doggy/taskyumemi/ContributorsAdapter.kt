@@ -17,8 +17,6 @@ class ContributorsAdapter(private val context: Context): RecyclerView.Adapter<Co
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val loginTextView: TextView = view.findViewById(R.id.login_text_view)
         val avatarImage: ImageView = view.findViewById(R.id.avator_image_view)
-        val followersTextView: TextView = view.findViewById(R.id.followers_text_view)
-        val followingTextView: TextView = view.findViewById(R.id.following_text_view)
         val nameTextView: TextView = view.findViewById(R.id.name_text_view)
     }
 
@@ -33,8 +31,6 @@ class ContributorsAdapter(private val context: Context): RecyclerView.Adapter<Co
         val item = items[position]
         holder.loginTextView.text = item.login
         //holder.avatarImageに画像を表示する処理
-        holder.followersTextView.text = item.followers.toString()
-        holder.followingTextView.text = item.following.toString()
         holder.nameTextView.text = item.name
     }
 
