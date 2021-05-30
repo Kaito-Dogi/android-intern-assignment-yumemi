@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import coil.api.load
 
 class ContributorAdapter(private val context: Context): RecyclerView.Adapter<ContributorAdapter.ViewHolder>() {
 
@@ -32,7 +33,7 @@ class ContributorAdapter(private val context: Context): RecyclerView.Adapter<Con
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
         holder.loginTextView.text = item.login
-        //holder.avatarImageに画像を表示する処理
+        holder.avatarImage.load(item.imageUrl)
         holder.followersTextView.text = item.followers.toString()
         holder.followingTextView.text = item.following.toString()
         holder.nameTextView.text = item.name

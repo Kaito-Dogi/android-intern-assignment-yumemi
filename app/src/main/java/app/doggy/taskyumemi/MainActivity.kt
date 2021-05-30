@@ -39,12 +39,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         //ダミーデータを作成
-        contributorIds.add(ContributorId("Kaito-Dogi","https://avatars.githubusercontent.com/u/49048577?v=4"))
-
-    }
-
-    override fun onResume() {
-        super.onResume()
+        //contributorIds.add(ContributorId("Kaito-Dogi","https://avatars.githubusercontent.com/u/49048577?v=4"))
 
         runBlocking(Dispatchers.IO) {
             runCatching {
@@ -71,6 +66,8 @@ class MainActivity : AppCompatActivity() {
         //Contributorsのリストを追加
         adapter.addAll(contributorIds)
 
+        //Contributorsのリストを
+        contributorIds.clear()
     }
 
 }

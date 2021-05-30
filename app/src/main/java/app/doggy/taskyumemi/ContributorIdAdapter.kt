@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import coil.api.load
 
 class ContributorIdAdapter(private val context: Context): RecyclerView.Adapter<ContributorIdAdapter.ViewHolder>() {
 
@@ -31,7 +32,7 @@ class ContributorIdAdapter(private val context: Context): RecyclerView.Adapter<C
         val item = items[position]
         holder.nameTextView.text = item.login
         //holder.loginTextView.text = item.login
-        //holder.avatarImageに画像を表示する処理
+        holder.avatarImage.load(item.imageUrl)
     }
 
     override fun getItemCount(): Int {
