@@ -1,8 +1,16 @@
 package app.doggy.taskyumemi
 
+import com.google.gson.annotations.SerializedName
+
 data class Contributor (
-    val imageUrl: String,
-    val name: String,
+    val login: String,
+    @SerializedName("avatar_url") val imageUrl: String,
     val followers: Int,
-    val following: Int
+    val following: Int,
+    val name: String
+)
+
+data class ContributorId (
+    val login: String,
+    @SerializedName("avatar_url") val imageUrl: String
 )
