@@ -16,11 +16,11 @@ class ContributorAdapter(private val context: Context): RecyclerView.Adapter<Con
 
     //ViewHolderの定義
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val loginTextView: TextView = view.findViewById(R.id.login_text_view)
-        val avatarImage: ImageView = view.findViewById(R.id.avator_image_view)
-        val followersTextView: TextView = view.findViewById(R.id.followers_text_view)
-        val followingTextView: TextView = view.findViewById(R.id.following_text_view)
-        val nameTextView: TextView = view.findViewById(R.id.name_text_view)
+        val loginTextView: TextView = view.findViewById(R.id.login_text)
+        val avatarImage: ImageView = view.findViewById(R.id.avator_image)
+        val followersTextView: TextView = view.findViewById(R.id.followers_text)
+        val followingTextView: TextView = view.findViewById(R.id.following_text)
+        val nameTextView: TextView = view.findViewById(R.id.name_text)
     }
 
     //ViewHolderを生成
