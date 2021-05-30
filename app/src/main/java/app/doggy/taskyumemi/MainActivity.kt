@@ -1,5 +1,6 @@
 package app.doggy.taskyumemi
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -32,7 +33,14 @@ class MainActivity : AppCompatActivity() {
             .build()
         contributorService = retrofit.create(ContributorService::class.java)
 
-        adapter = ContributorIdAdapter(baseContext)
+        adapter = ContributorIdAdapter(baseContext, object: ContributorIdAdapter.OnItemClickListener {
+            override fun onItemClick(item: ContributorId) {
+                //クリック時の処理
+                val detailIntent = Intent(baseContext, DetailActivity::class.java)
+                detailIntent.putExtra("login", item.login)
+                startActivity(detailIntent)
+            }
+        })
 
         val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(baseContext)
