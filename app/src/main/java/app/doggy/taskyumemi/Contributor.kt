@@ -7,7 +7,8 @@ data class Contributor (
     @SerializedName("avatar_url") val imageUrl: String,
     val followers: Int,
     val following: Int,
-    val name: String
+    val name: String,
+    val company: String
 )
 
 data class ContributorId (

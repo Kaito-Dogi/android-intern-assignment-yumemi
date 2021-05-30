@@ -1,5 +1,6 @@
 package app.doggy.taskyumemi
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -15,9 +16,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var contributorService: ContributorService
-    lateinit var adapter: ContributorIdAdapter
-
     //val contributors: MutableList<Contributor> = mutableListOf()
     val contributorIds: MutableList<ContributorId> = mutableListOf()
 
@@ -30,9 +28,16 @@ class MainActivity : AppCompatActivity() {
             .baseUrl("https://api.github.com")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
-        contributorService = retrofit.create(ContributorService::class.java)
+        val contributorService = retrofit.create(ContributorService::class.java)
 
-        adapter = ContributorIdAdapter(baseContext)
+        val adapter = ContributorIdAdapter(baseContext, object: ContributorIdAdapter.OnItemClickListener {
+            override fun onItemClick(item: ContributorId) {
+                //クリック時の処理
+                val detailIntent = Intent(baseContext, DetailActivity::class.java)
+                detailIntent.putExtra("login", item.login)
+                startActivity(detailIntent)
+            }
+        })
 
         val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(baseContext)
@@ -53,6 +58,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(baseContext, "idの取得に失敗", Toast.LENGTH_SHORT).show()
         }
 
+        //一覧画面でcontributorの名前，フォロワー数，フォロー数も表示したい．
 //        runBlocking(Dispatchers.IO) {
 //            runCatching {
 //                contributorService.getContributor(contributorIds[1])

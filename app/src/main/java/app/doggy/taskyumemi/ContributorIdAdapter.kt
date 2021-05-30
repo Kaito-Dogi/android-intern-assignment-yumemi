@@ -5,20 +5,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 
-class ContributorIdAdapter(private val context: Context): RecyclerView.Adapter<ContributorIdAdapter.ViewHolder>() {
+class ContributorIdAdapter(
+    private val context: Context,
+    private var listener: OnItemClickListener
+    ) : RecyclerView.Adapter<ContributorIdAdapter.ViewHolder>() {
 
     //リスト表示するデータの配列
     val items: MutableList<ContributorId> = mutableListOf()
 
     //ViewHolderの定義
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val loginTextView: TextView = view.findViewById(R.id.login_text_view)
-        val avatarImage: ImageView = view.findViewById(R.id.avator_image_view)
-        val nameTextView: TextView = view.findViewById(R.id.name_text_view)
+        val loginTextView: TextView = view.findViewById(R.id.login_text)
+        val avatarImage: ImageView = view.findViewById(R.id.avator_image)
+        val nameTextView: TextView = view.findViewById(R.id.name_text)
+        val container: LinearLayout = view.findViewById(R.id.container)
     }
 
     //ViewHolderを生成
@@ -33,6 +38,10 @@ class ContributorIdAdapter(private val context: Context): RecyclerView.Adapter<C
         holder.nameTextView.text = item.login
         //holder.loginTextView.text = item.login
         holder.avatarImage.load(item.imageUrl)
+
+        holder.container.setOnClickListener {
+            listener.onItemClick(item)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -43,5 +52,9 @@ class ContributorIdAdapter(private val context: Context): RecyclerView.Adapter<C
     fun addAll(items: MutableList<ContributorId>) {
         this.items.addAll(items)
         notifyDataSetChanged()
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(item: ContributorId)
     }
 }
