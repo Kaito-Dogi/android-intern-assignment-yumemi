@@ -8,17 +8,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ContributorAdapter(private val context: Context): RecyclerView.Adapter<ContributorAdapter.ViewHolder>() {
+class ContributorIdAdapter(private val context: Context): RecyclerView.Adapter<ContributorIdAdapter.ViewHolder>() {
 
     //リスト表示するデータの配列
-    val items: MutableList<Contributor> = mutableListOf()
+    val items: MutableList<ContributorId> = mutableListOf()
 
     //ViewHolderの定義
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val loginTextView: TextView = view.findViewById(R.id.login_text_view)
         val avatarImage: ImageView = view.findViewById(R.id.avator_image_view)
-        val followersTextView: TextView = view.findViewById(R.id.followers_text_view)
-        val followingTextView: TextView = view.findViewById(R.id.following_text_view)
         val nameTextView: TextView = view.findViewById(R.id.name_text_view)
     }
 
@@ -31,11 +29,9 @@ class ContributorAdapter(private val context: Context): RecyclerView.Adapter<Con
     //position番目のセルにデータを表示
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-        holder.loginTextView.text = item.login
+        holder.nameTextView.text = item.login
+        //holder.loginTextView.text = item.login
         //holder.avatarImageに画像を表示する処理
-        holder.followersTextView.text = item.followers.toString()
-        holder.followingTextView.text = item.following.toString()
-        holder.nameTextView.text = item.name
     }
 
     override fun getItemCount(): Int {
@@ -43,7 +39,7 @@ class ContributorAdapter(private val context: Context): RecyclerView.Adapter<Con
     }
 
     //引数にとったデータをリストに追加
-    fun addAll(items: List<Contributor>) {
+    fun addAll(items: MutableList<ContributorId>) {
         this.items.addAll(items)
         notifyDataSetChanged()
     }

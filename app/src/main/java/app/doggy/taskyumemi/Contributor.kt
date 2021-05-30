@@ -11,5 +11,6 @@ data class Contributor (
 )
 
 data class ContributorId (
-    val login: String
+    val login: String,
+    @SerializedName("avatar_url") val imageUrl: String
 )
