@@ -9,6 +9,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="6dp"
+        app:cardCornerRadius="4dp"
         app:cardElevation="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,16 +20,23 @@
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/purple_500"
             android:orientation="horizontal"
             android:padding="6dp">
 
-            <ImageView
-                android:id="@+id/avator_image"
+            <androidx.cardview.widget.CardView
                 android:layout_width="56dp"
                 android:layout_height="56dp"
                 android:layout_margin="4dp"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/ic_launcher_background" />
+                app:cardCornerRadius="28dp">
+
+                <ImageView
+                    android:id="@+id/avator_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/ic_launcher_background" />
+            </androidx.cardview.widget.CardView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -43,8 +51,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="2dp"
-                    android:fontFamily="sans-serif-black"
+                    android:fontFamily="sans-serif-medium"
                     android:text="Doggy"
+                    android:textColor="@color/white"
                     android:textSize="24sp" />
 
                 <LinearLayout
@@ -57,34 +66,41 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
-                        android:text="username" />
+                        android:text="username"
+                        android:textColor="@color/purple_200" />
 
                     <TextView
                         android:id="@+id/followers_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="2dp"
-                        android:text="0" />
+                        android:fontFamily="sans-serif-medium"
+                        android:text="0"
+                        android:textColor="@color/white" />
 
                     <TextView
                         android:id="@+id/followers_caption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
-                        android:text="followers" />
+                        android:text="followers"
+                        android:textColor="@color/purple_200" />
 
                     <TextView
                         android:id="@+id/following_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="2dp"
-                        android:text="0" />
+                        android:fontFamily="sans-serif-medium"
+                        android:text="0"
+                        android:textColor="@color/white" />
 
                     <TextView
                         android:id="@+id/following_caption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="following" />
+                        android:text="following"
+                        android:textColor="@color/purple_200" />
 
                 </LinearLayout>
 
