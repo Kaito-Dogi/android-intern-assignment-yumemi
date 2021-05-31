@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0F1218"
+    android:background="@color/black"
     android:orientation="vertical"
     tools:context=".DetailActivity">
 
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:text="Doggy"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/white"
                 android:textSize="24sp" />
 
             <TextView
@@ -49,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Kaito-Dogi"
-                android:textColor="#8b949e"
+                android:textColor="@color/purple_200"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -78,7 +78,7 @@
             android:layout_marginEnd="2dp"
             android:fontFamily="sans-serif-medium"
             android:text="0"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="16sp" />
 
         <TextView
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="followers"
-            android:textColor="#8b949e"
+            android:textColor="@color/purple_200"
             android:textSize="16sp" />
 
         <TextView
@@ -97,7 +97,7 @@
             android:layout_marginEnd="2dp"
             android:fontFamily="sans-serif-medium"
             android:text="0"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="16sp" />
 
         <TextView
@@ -105,7 +105,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="following"
-            android:textColor="#8b949e"
+            android:textColor="@color/purple_200"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -131,7 +131,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
             android:text="YUMEMI"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -156,7 +156,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Repositories"
-            android:textColor="#8b949e"
+            android:textColor="@color/purple_200"
             android:textSize="16sp" />
     </LinearLayout>
 
