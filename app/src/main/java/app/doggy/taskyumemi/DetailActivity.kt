@@ -28,6 +28,9 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
+        supportActionBar?.title = ""
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         loginText = findViewById(R.id.login_text_detail)
         avatarImage = findViewById(R.id.avatar_image_detail)
         followersText = findViewById(R.id.followers_text_detail)
@@ -60,5 +63,10 @@ class DetailActivity : AppCompatActivity() {
         }.onFailure {
             Toast.makeText(baseContext, "情報の取得に失敗", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return super.onSupportNavigateUp()
     }
 }
