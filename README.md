@@ -1,7 +1,7 @@
 # Intern_Task_Yumemi
 
 ## 作成したアプリのスクリーンショット
-![screenshot](https://user-images.githubusercontent.com/49048577/120358373-603f8c00-c341-11eb-9e5c-5225e18da95b.png)
+![screenshot](https://user-images.githubusercontent.com/49048577/120365767-d0eaa680-c349-11eb-9a0b-9e40adbe5686.png)
 
 
 ## 工夫したこと
