@@ -31,6 +31,7 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
+        //ActionBarの設定
         supportActionBar?.title = ""
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -50,6 +51,7 @@ class DetailActivity : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
         val contributorService = retrofit.create(ContributorService::class.java)
+        val repositoryService = retrofit.create(RepositoryService::class.java)
 
         //contributorの情報を表示
         runBlocking(Dispatchers.IO) {
@@ -67,10 +69,21 @@ class DetailActivity : AppCompatActivity() {
             Toast.makeText(baseContext, "情報の取得に失敗", Toast.LENGTH_SHORT).show()
         }
 
-        //ダミーデータ
-        val repositories: MutableList<Repository> = mutableListOf(
-            Repository("Intern_Task_Yumemi", "2021-01-27T13:13:45Z", "Kotlin")
-        )
+        //Repositoryのリスト
+        val repositories: MutableList<Repository> = mutableListOf()
+
+        //Repositoryを取得
+        runBlocking(Dispatchers.IO) {
+            runCatching {
+                repositoryService.getRepositories(login as String)
+            }
+        }.onSuccess {
+            for (repository in it) {
+                repositories.add(repository)
+            }
+        }.onFailure {
+            Toast.makeText(baseContext, "情報の取得に失敗", Toast.LENGTH_SHORT).show()
+        }
 
         val adapter = RepositoryAdapter(baseContext)
 
@@ -78,8 +91,8 @@ class DetailActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(baseContext)
         recyclerView.adapter = adapter
 
+        //Repositoryのリストを追加
         adapter.addAll(repositories)
-
         repositories.clear()
     }
 
