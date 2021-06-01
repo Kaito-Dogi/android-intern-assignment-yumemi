@@ -39,7 +39,7 @@
 - （改めて）WebAPIの利用方法
 - （改めて）Coroutinesによる非同期処理
   - 正直言うと，非同期処理についてもっとちゃんと理解したい．
-- （改めて）RecyclerViewの実装
+- （改めて）RecyclerViewの実装方法
 - READMEの必要性と書き方
 
 ## 感想
