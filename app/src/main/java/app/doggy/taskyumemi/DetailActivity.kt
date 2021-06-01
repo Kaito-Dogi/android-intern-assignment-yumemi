@@ -1,10 +1,13 @@
 package app.doggy.taskyumemi
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
@@ -17,17 +20,18 @@ import kotlin.math.log
 
 class DetailActivity : AppCompatActivity() {
 
-    lateinit var loginText: TextView
-    lateinit var avatarImage: ImageView
-    lateinit var followersText: TextView
-    lateinit var followingText: TextView
-    lateinit var nameText: TextView
-    lateinit var companyText: TextView
+    private lateinit var loginText: TextView
+    private lateinit var avatarImage: ImageView
+    private lateinit var followersText: TextView
+    private lateinit var followingText: TextView
+    private lateinit var nameText: TextView
+    private lateinit var companyText: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
+        //ActionBarの設定
         supportActionBar?.title = ""
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -47,6 +51,7 @@ class DetailActivity : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
         val contributorService = retrofit.create(ContributorService::class.java)
+        val repositoryService = retrofit.create(RepositoryService::class.java)
 
         //contributorの情報を表示
         runBlocking(Dispatchers.IO) {
@@ -63,6 +68,32 @@ class DetailActivity : AppCompatActivity() {
         }.onFailure {
             Toast.makeText(baseContext, "情報の取得に失敗", Toast.LENGTH_SHORT).show()
         }
+
+        //Repositoryのリスト
+        val repositories: MutableList<Repository> = mutableListOf()
+
+        //Repositoryを取得
+        runBlocking(Dispatchers.IO) {
+            runCatching {
+                repositoryService.getRepositories(login as String)
+            }
+        }.onSuccess {
+            for (repository in it) {
+                repositories.add(repository)
+            }
+        }.onFailure {
+            Toast.makeText(baseContext, "情報の取得に失敗", Toast.LENGTH_SHORT).show()
+        }
+
+        val adapter = RepositoryAdapter(baseContext)
+
+        val recyclerView: RecyclerView = findViewById(R.id.recycler_view_repository)
+        recyclerView.layoutManager = LinearLayoutManager(baseContext)
+        recyclerView.adapter = adapter
+
+        //Repositoryのリストを追加
+        adapter.addAll(repositories)
+        repositories.clear()
     }
 
     override fun onSupportNavigateUp(): Boolean {

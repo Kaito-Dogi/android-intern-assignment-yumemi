@@ -17,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MainActivity : AppCompatActivity() {
 
     //val contributors: MutableList<Contributor> = mutableListOf()
-    val contributorIds: MutableList<ContributorId> = mutableListOf()
+    private val contributorIds: MutableList<ContributorId> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,9 +43,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(baseContext)
         recyclerView.adapter = adapter
 
-        //ダミーデータを作成
-        //contributorIds.add(ContributorId("Kaito-Dogi","https://avatars.githubusercontent.com/u/49048577?v=4"))
-
+        //loginを取得
         runBlocking(Dispatchers.IO) {
             runCatching {
                 contributorService.getContributorId()
@@ -58,21 +56,22 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(baseContext, "idの取得に失敗", Toast.LENGTH_SHORT).show()
         }
 
-        //一覧画面でcontributorの名前，フォロワー数，フォロー数も表示したい．
-//        runBlocking(Dispatchers.IO) {
-//            runCatching {
-//                contributorService.getContributor(contributorIds[1])
-//            }
-//        }.onSuccess {
-//            contributors.add(it)
-//        }.onFailure {
-//            Toast.makeText(baseContext, "contributorsの詳細情報の取得に失敗", Toast.LENGTH_SHORT).show()
-//        }
+        /* 一覧画面でcontributorの名前，フォロワー数，フォロー数も表示したい
+        runBlocking(Dispatchers.IO) {
+            runCatching {
+                contributorService.getContributor(contributorIds[1])
+            }
+        }.onSuccess {
+            contributors.add(it)
+        }.onFailure {
+            Toast.makeText(baseContext, "contributorsの詳細情報の取得に失敗", Toast.LENGTH_SHORT).show()
+        }
+        */
 
         //Contributorsのリストを追加
         adapter.addAll(contributorIds)
 
-        //Contributorsのリストを
+        //Contributorsのリストを初期化
         contributorIds.clear()
     }
 

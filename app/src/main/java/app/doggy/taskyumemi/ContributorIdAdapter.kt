@@ -16,7 +16,7 @@ class ContributorIdAdapter(
     ) : RecyclerView.Adapter<ContributorIdAdapter.ViewHolder>() {
 
     //リスト表示するデータの配列
-    val items: MutableList<ContributorId> = mutableListOf()
+    private val items: MutableList<ContributorId> = mutableListOf()
 
     //ViewHolderの定義
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
