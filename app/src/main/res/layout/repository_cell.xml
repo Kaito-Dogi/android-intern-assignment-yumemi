@@ -40,24 +40,24 @@
                     android:fontFamily="sans-serif-medium"
                     android:text="Intern_Task_Yumemi"
                     android:textColor="@color/white"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <androidx.cardview.widget.CardView
-                        android:layout_width="14sp"
-                        android:layout_height="14sp"
-                        android:layout_margin="4dp"
-                        app:cardCornerRadius="7sp">
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_marginEnd="4dp"
+                        app:cardCornerRadius="6dp">
 
                         <ImageView
                             android:id="@+id/language_image_view"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
                             app:srcCompat="@color/teal_700" />
                     </androidx.cardview.widget.CardView>
 
@@ -67,7 +67,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:text="Kotlin"
-                        android:textColor="@color/purple_200" />
+                        android:textColor="@color/purple_200"
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/updated_at_text_repository"
@@ -75,7 +76,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:text="Updated on 02 June 2021"
-                        android:textColor="@color/purple_200" />
+                        android:textColor="@color/purple_200"
+                        android:textSize="14sp" />
 
                 </LinearLayout>
 

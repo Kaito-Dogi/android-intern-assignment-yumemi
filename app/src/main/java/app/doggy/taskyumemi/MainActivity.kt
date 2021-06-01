@@ -17,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MainActivity : AppCompatActivity() {
 
     //val contributors: MutableList<Contributor> = mutableListOf()
-    val contributorIds: MutableList<ContributorId> = mutableListOf()
+    private val contributorIds: MutableList<ContributorId> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

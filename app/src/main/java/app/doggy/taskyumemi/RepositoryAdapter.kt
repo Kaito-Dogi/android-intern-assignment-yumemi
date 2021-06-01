@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class RepositoryAdapter(val context: Context): RecyclerView.Adapter<RepositoryAdapter.ViewHolder>() {
 
-    val items: MutableList<Repository> = mutableListOf()
+    private val items: MutableList<Repository> = mutableListOf()
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val nameTextView: TextView = view.findViewById(R.id.name_text_repository)
@@ -52,5 +52,10 @@ class RepositoryAdapter(val context: Context): RecyclerView.Adapter<RepositoryAd
 
     override fun getItemCount(): Int {
         return items.size
+    }
+
+    fun addAll(items: MutableList<Repository>) {
+        this.items.addAll(items)
+        notifyDataSetChanged()
     }
 }
