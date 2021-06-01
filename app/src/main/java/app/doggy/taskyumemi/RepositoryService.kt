@@ -7,4 +7,5 @@ interface RepositoryService {
     //ContributorのRepositoryを取得する
     @GET("users/{login}/repos")
     suspend fun getRepositories(): List<Repository>
+
 }
