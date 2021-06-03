@@ -1,6 +1,6 @@
 # ゆめみ 通年インターン コーディング試験
 
-## 作成したアプリのスクリーンショット
+## スクリーンショット
 ![screenshot](https://user-images.githubusercontent.com/49048577/120365767-d0eaa680-c349-11eb-9a0b-9e40adbe5686.png)
 
 
